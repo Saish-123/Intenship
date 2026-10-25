@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fieldnote Coffee Roasters | Fresh small-batch coffee</title>
+  <meta name="description" content="Small-batch coffee roasted every Monday and shipped fresh to your door.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Reusable coffee bag illustration (colour set per use via CSS) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="bag" viewBox="0 0 120 150">
+      <path d="M22 18h76l8 18-6 100a6 6 0 0 1-6 6H26a6 6 0 0 1-6-6L14 36z" fill="currentColor"/>
+      <path d="M22 18h76l8 18H14z" fill="#000" opacity=".18"/>
+      <rect x="32" y="62" width="56" height="50" rx="4" fill="#f7f8f5"/>
+      <path d="M60 72c-9 4-13 13-8 22 3 5 9 7 14 4 7-4 8-14 3-20-2-3-5-5-9-6z" fill="currentColor" opacity=".85"/>
+      <path d="M57 74c4 6 3 14 1 20" stroke="#f7f8f5" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Fieldnote Coffee Roasters, home">Fieldnote</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#why">Why Fieldnote</a></li>
+          <li><a href="#story">Our story</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1 id="hero-title">Roasted on Monday. At your door by Thursday.</h1>
+          <p class="lead">Small batches from three farms we visit every year, roasted once a week so nothing sits on a shelf.</p>
+          <div class="btn-row">
+            <a class="btn" href="#shop">Choose your beans</a>
+            <a class="btn btn-outline" href="#story">Meet the farms</a>
+          </div>
+        </div>
+        <figure class="hero-media">
+          <svg class="hero-art" viewBox="0 0 400 360" role="img" aria-label="Illustration of a coffee bag and a steaming cup">
+            <circle cx="200" cy="180" r="160" fill="#e4e9df"/>
+            <use href="#bag" x="70" y="60" width="170" height="212" class="bag-green"/>
+            <path d="M255 215h80v38a40 40 0 0 1-40 40h0a40 40 0 0 1-40-40z" fill="#1f2a24"/>
+            <path d="M335 228h14a14 14 0 0 1 0 28h-14" fill="none" stroke="#1f2a24" stroke-width="8"/>
+            <path d="M280 195c-8-10 8-18 0-30M305 195c-8-10 8-18 0-30" stroke="#2f5d46" stroke-width="5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <section class="features" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <h2 id="why-title">Why people switch to us</h2>
+        <ul class="feature-grid">
+          <li>
+            <h3>Roasted weekly</h3>
+            <p>Every bag carries its roast date, never a vague best-before.</p>
+          </li>
+          <li>
+            <h3>Traceable farms</h3>
+            <p>Read who grew your coffee and what they were paid for it.</p>
+          </li>
+          <li>
+            <h3>Pause any time</h3>
+            <p>Skip a week or cancel from your account in two clicks.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="shop" id="shop" aria-labelledby="shop-title">
+      <div class="container">
+        <h2 id="shop-title">This week’s roasts</h2>
+        <ul class="card-grid">
+          <li class="card">
+            <article>
+              <svg class="card-art tone-green" viewBox="0 0 120 150" aria-hidden="true"><use href="#bag"/></svg>
+              <h3>Huila, Colombia</h3>
+              <p>Red apple and brown sugar. Great as filter or with milk.</p>
+              <p class="price"><span class="visually-hidden">Price: </span>₹749 <small>/ 250 g</small></p>
+              <a class="btn btn-small" href="#contact">Add to basket<span class="visually-hidden">: Huila, Colombia</span></a>
+            </article>
+          </li>
+          <li class="card">
+            <article>
+              <svg class="card-art tone-clay" viewBox="0 0 120 150" aria-hidden="true"><use href="#bag"/></svg>
+              <h3>Sidamo, Ethiopia</h3>
+              <p>Blueberry and jasmine. Bright, floral, best black.</p>
+              <p class="price"><span class="visually-hidden">Price: </span>₹849 <small>/ 250 g</small></p>
+              <a class="btn btn-small" href="#contact">Add to basket<span class="visually-hidden">: Sidamo, Ethiopia</span></a>
+            </article>
+          </li>
+          <li class="card">
+            <article>
+              <svg class="card-art tone-ink" viewBox="0 0 120 150" aria-hidden="true"><use href="#bag"/></svg>
+              <h3>Chikmagalur, India</h3>
+              <p>Dark chocolate and toasted nut. Made for espresso.</p>
+              <p class="price"><span class="visually-hidden">Price: </span>₹649 <small>/ 250 g</small></p>
+              <a class="btn btn-small" href="#contact">Add to basket<span class="visually-hidden">: Chikmagalur, India</span></a>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="story" id="story" aria-labelledby="story-title">
+      <div class="container story-grid">
+        <article class="story-main">
+          <h2 id="story-title">We visit every farm, every year</h2>
+          <p>Fieldnote started as a notebook of tasting scribbles from a trip to Coorg. Today we still buy directly from three farms and pay above fair-trade minimums.</p>
+          <p>Roasting happens once a week, in small batches, so each bag leaves us within days of coming off the roaster.</p>
+          <a class="btn btn-outline" href="#shop">See this week’s roasts</a>
+        </article>
+        <aside class="story-side" aria-labelledby="notes-title">
+          <h2 id="notes-title" class="h3">From the journal</h2>
+          <ul class="link-list">
+            <li><a href="#">How we grind for a V60</a></li>
+            <li><a href="#">A week in Chikmagalur</a></li>
+            <li><a href="#">Why roast dates matter</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="newsletter" id="contact" aria-labelledby="news-title">
+      <div class="container newsletter-inner">
+        <div>
+          <h2 id="news-title">Get Monday’s roast notes</h2>
+          <p>One short email a week. Unsubscribe whenever you like.</p>
+        </div>
+        <form action="#" method="post" class="signup">
+          <label for="email">Email address</label>
+          <div class="signup-row">
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+            <button type="submit" class="btn">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Fieldnote Coffee Roasters</p>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-links">
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
