@@ -1,0 +1,729 @@
+/* ==========================================================
+   Ridgeline Trail Club: mobile-first responsive stylesheet
+   Contents
+   1. Tokens   2. Base   3. Helpers   4. Components
+   5. Header & nav   6. Sections   7. Breakpoints   8. Preferences
+   ========================================================== */
+
+/* 1. TOKENS */
+:root {
+  --pine: #1d3b2f;
+  --moss: #2f5d4a;
+  --snow: #f5f7f3;
+  --stone: #e3e9e1;
+  --sun: #b45309; /* 5.0:1 against white, passes WCAG AA */
+  --sun-dark: #8f3f08;
+  --ink: #1b2620;
+  --line: #c8d1c5;
+  --font-head: "Bitter", georgia, serif;
+  --font-body:
+    "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --gap: clamp(1rem, 3vw, 2rem);
+  --section-y: clamp(3rem, 8vw, 6rem);
+  --radius: 8px;
+  --max: 1100px;
+}
+
+/* 2. BASE */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  overflow-wrap: break-word; /* a long word wraps instead of overflowing */
+  margin: 0;
+  font: 1.0625rem/1.65 var(--font-body);
+  color: var(--ink);
+  background: var(--snow);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+} /* fluid images */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+  font-family: var(--font-head);
+  line-height: 1.15;
+  margin: 0 0 0.6em;
+  color: var(--pine);
+}
+
+h1 {
+  font-size: clamp(2rem, 1.2rem + 4vw, 3.5rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 1.2rem + 2vw, 2.3rem);
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+p {
+  margin: 0 0 1em;
+  max-width: 62ch;
+}
+
+a {
+  color: var(--moss);
+  overflow-wrap: anywhere; /* long emails and URLs never force a sideways scroll */
+}
+
+:focus-visible {
+  outline: 3px solid var(--sun);
+  outline-offset: 3px;
+}
+
+/* 3. HELPERS */
+.container {
+  width: min(100% - 2rem, var(--max));
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0.5rem;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 30;
+}
+
+.section-head {
+  margin-bottom: var(--gap);
+}
+
+/* 4. COMPONENTS */
+.btn {
+  display: inline-block;
+  overflow-wrap: anywhere;
+  padding: 0.75rem 1.4rem;
+  font: 600 1rem var(--font-body);
+  color: #fff;
+  background: var(--sun);
+  border: 2px solid var(--sun);
+  border-radius: var(--radius);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background: var(--sun-dark);
+  border-color: var(--sun-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--pine);
+  border-color: var(--pine);
+}
+
+.btn-ghost:hover {
+  background: var(--pine);
+  border-color: var(--pine);
+  color: #fff;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.lead {
+  font-size: 1.2rem;
+}
+
+/* 5. HEADER AND NAV (mobile first: menu collapsed) */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--snow);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 0.75rem;
+}
+
+.logo {
+  font: 800 1.5rem var(--font-head);
+  color: var(--pine);
+  text-decoration: none;
+}
+
+.nav-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+} /* still keyboard focusable */
+.nav-toggle {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  border-radius: var(--radius);
+}
+
+.bars,
+.bars::before,
+.bars::after {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: var(--pine);
+  border-radius: 2px;
+  content: "";
+  transition: transform 0.2s;
+}
+
+.bars {
+  position: relative;
+}
+
+.bars::before {
+  position: absolute;
+  top: -8px;
+}
+
+.bars::after {
+  position: absolute;
+  top: 8px;
+}
+
+.nav-checkbox:checked + .nav-toggle .bars {
+  background: transparent;
+}
+
+.nav-checkbox:checked + .nav-toggle .bars::before {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-checkbox:checked + .nav-toggle .bars::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-checkbox:focus-visible + .nav-toggle {
+  outline: 3px solid var(--sun);
+}
+
+.site-nav {
+  display: none;
+  flex-basis: 100%;
+  padding-block: 0.5rem 1rem;
+}
+
+.nav-checkbox:checked ~ .site-nav {
+  display: block;
+}
+
+.nav-list a {
+  display: block;
+  padding: 0.7rem 0;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-list .nav-cta {
+  margin-top: 0.75rem;
+  text-align: center;
+  color: #fff;
+  background: var(--sun);
+  border: 0;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+/* 6. SECTIONS */
+/* Hero: stacked by default */
+.hero {
+  padding-block: var(--section-y);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* lets a single column shrink below its widest word */
+  gap: var(--gap);
+}
+
+.hero-media img {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  aspect-ratio: 5 / 2;
+}
+
+/* Trails: auto-fit grid + container queries on each card */
+.trails,
+.schedule,
+.gallery,
+.faq {
+  padding-block: var(--section-y);
+}
+
+.trails {
+  background: var(--stone);
+}
+
+.trail-grid {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+
+.trail-item {
+  container-type: inline-size;
+}
+
+.trail-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  height: 100%;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.trail-card img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.trail-body {
+  padding: 1.25rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0;
+}
+
+.meta div {
+  min-width: 0;
+}
+
+.meta dt,
+.meta dd {
+  overflow-wrap: anywhere;
+}
+
+.meta dt {
+  font-size: 0.85rem;
+  color: #4d5b52;
+}
+
+.meta dd {
+  margin: 0;
+  font-weight: 600;
+}
+/* The card reflows based on ITS OWN width, not the viewport */
+@container (min-width: 480px) {
+  .trail-card {
+    grid-template-columns: 5fr 7fr;
+  }
+
+  .trail-card img {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
+
+/* Schedule table: real table on wide screens, stacked cards on phones */
+.table-wrap {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.schedule-table,
+.schedule-table tbody {
+  display: block; /* lets rows shrink to the screen in card mode */
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.schedule-table thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.schedule-table tr {
+  display: block;
+  padding: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.schedule-table tr:last-child {
+  border-bottom: 0;
+}
+
+.schedule-table th,
+.schedule-table td {
+  display: flex;
+  overflow-wrap: anywhere;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.15rem 1rem;
+  padding: 0.25rem 0;
+  text-align: left;
+  font-weight: 400;
+}
+
+.schedule-table th[scope="row"] {
+  font-weight: 600;
+}
+
+.schedule-table [data-label]::before {
+  content: attr(data-label);
+  font-weight: 600;
+  color: #4d5b52;
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: var(--gap);
+}
+
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.gallery-grid .wide {
+  grid-column: span 2;
+}
+
+.gallery-grid .wide img {
+  aspect-ratio: 8 / 3;
+  object-position: center 65%;
+} /* two cells wide, one cell tall */
+
+/* FAQ */
+.faq {
+  background: var(--stone);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* lets a single column shrink below its widest word */
+  gap: 0.75rem;
+  margin-top: var(--gap);
+}
+
+details {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0 1.1rem;
+}
+
+summary {
+  padding: 1rem 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+details[open] summary {
+  color: var(--pine);
+}
+
+details p {
+  margin-bottom: 1rem;
+}
+
+/* Join form */
+.join {
+  background: var(--pine);
+  color: #fff;
+  padding-block: var(--section-y);
+}
+
+.join h2 {
+  color: #fff;
+}
+
+.join-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* lets a single column shrink below its widest word */
+  gap: var(--gap);
+}
+
+.join-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  font: 1rem var(--font-body);
+  border: 2px solid #fff;
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--ink);
+}
+
+.join :focus-visible {
+  outline-color: #fff;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--ink);
+  color: var(--snow);
+  padding-block: 1.5rem;
+}
+
+.site-footer a {
+  color: var(--snow);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-inner p {
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}
+
+.footer-links a {
+  display: inline-block;
+  padding-block: 0.5rem; /* 24px+ tap target */
+}
+
+/* 7. BREAKPOINTS (mobile-first: each one only adds) */
+@media (min-width: 560px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-media img {
+    aspect-ratio: 16 / 7;
+  }
+}
+
+@media (min-width: 760px) {
+  /* Menu becomes a normal horizontal bar */
+  .nav-toggle,
+  .nav-checkbox {
+    display: none;
+  }
+
+  .site-nav {
+    display: block;
+    flex-basis: auto;
+    padding: 0;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-list a {
+    padding: 0.3rem 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-list a:hover {
+    border-color: var(--sun);
+  }
+
+  .nav-list .nav-cta {
+    margin: 0;
+    padding: 0.55rem 1.1rem;
+  }
+
+  /* Table becomes a real table */
+  .schedule-table {
+    display: table;
+  }
+
+  .schedule-table tbody {
+    display: table-row-group;
+  }
+
+  .schedule-table thead {
+    position: static;
+    width: auto;
+    height: auto;
+    clip-path: none;
+    overflow: visible;
+  }
+
+  .schedule-table tr {
+    display: table-row;
+    padding: 0;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    display: table-cell;
+    padding: 0.9rem 1.1rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .schedule-table thead th {
+    background: var(--stone);
+    font-weight: 600;
+  }
+
+  .schedule-table tbody tr:last-child > * {
+    border-bottom: 0;
+  }
+
+  .schedule-table [data-label]::before {
+    content: none;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .join-inner {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (min-width: 960px) {
+  /* Hero goes side by side and swaps to the square crop */
+  .hero-inner {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+  }
+
+  .hero-media img {
+    aspect-ratio: 1;
+  }
+
+  .trail-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .trail-item--featured {
+    grid-column: 1 / -1;
+  } /* full row, so the card goes horizontal on its own */
+}
+
+/* Short landscape phones: a sticky header would eat the screen */
+@media (max-height: 500px) and (orientation: landscape) {
+  .site-header {
+    position: static;
+  }
+
+  .hero {
+    padding-block: 2rem;
+  }
+}
+
+/* 8. USER PREFERENCES */
+@media (hover: hover) {
+  .trail-card {
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
+  }
+
+  .trail-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgb(29 59 47 / 15%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
+
+@media print {
+  .site-header,
+  .join,
+  .btn-row {
+    display: none;
+  }
+
+  details {
+    border: 0;
+  }
+}

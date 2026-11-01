@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ridgeline Trail Club | Weekend hikes near Pune</title>
+  <meta name="description" content="A friendly hiking club running weekend treks in the Sahyadris for every fitness level.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top">Ridgeline</a>
+
+      <!-- CSS-only menu: the checkbox holds the open/closed state -->
+      <input type="checkbox" id="nav-toggle" class="nav-checkbox">
+      <label for="nav-toggle" class="nav-toggle"><span class="visually-hidden">Menu</span><span class="bars" aria-hidden="true"></span></label>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#trails">Trails</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a class="nav-cta" href="#join">Join a hike</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1 id="hero-title">Get out of the city. Back by Sunday dinner.</h1>
+          <p class="lead">Ridgeline runs small-group day treks in the Sahyadris every weekend. Pick a trail that matches your legs, and we’ll handle the route and the pace.</p>
+          <div class="btn-row">
+            <a class="btn" href="#schedule">See upcoming hikes</a>
+            <a class="btn btn-ghost" href="#trails">Browse trails</a>
+          </div>
+        </div>
+        <!-- Art direction: a square crop on wide screens, a banner crop on narrow ones -->
+        <picture class="hero-media">
+          <source media="(min-width: 960px)" srcset="images/hero-square.svg" width="900" height="900">
+          <img src="images/hero-banner.svg" width="1600" height="640" alt="Layered green mountain ridges under a warm sunrise sky">
+        </picture>
+      </div>
+    </section>
+
+    <section class="trails" id="trails" aria-labelledby="trails-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="trails-title">Trails we run</h2>
+          <p>Each one is graded by distance and climb, so you know what you’re signing up for.</p>
+        </div>
+        <ul class="trail-grid">
+          <li class="trail-item trail-item--featured">
+            <article class="trail-card">
+              <img src="images/trail-summit.svg" width="640" height="420" loading="lazy" alt="Grey-blue summit ridge in morning light">
+              <div class="trail-body">
+                <h3>Rajmachi Ridge</h3>
+                <p>Our most popular trek: forest start, open ridge, and a fort at the top. Long day, but the path is clear.</p>
+                <dl class="meta">
+                  <div><dt>Distance</dt><dd>14 km</dd></div>
+                  <div><dt>Climb</dt><dd>650 m</dd></div>
+                  <div><dt>Level</dt><dd>Moderate</dd></div>
+                </dl>
+              </div>
+            </article>
+          </li>
+          <li class="trail-item">
+            <article class="trail-card">
+              <img src="images/trail-lake.svg" width="640" height="420" loading="lazy" alt="Calm lake below warm brown hills">
+              <div class="trail-body">
+                <h3>Mulshi Lakeside</h3>
+                <p>A flat, shaded loop beside the water. Good first hike.</p>
+                <dl class="meta">
+                  <div><dt>Distance</dt><dd>7 km</dd></div>
+                  <div><dt>Climb</dt><dd>120 m</dd></div>
+                  <div><dt>Level</dt><dd>Easy</dd></div>
+                </dl>
+              </div>
+            </article>
+          </li>
+          <li class="trail-item">
+            <article class="trail-card">
+              <img src="images/trail-forest.svg" width="640" height="420" loading="lazy" alt="Dense dark-green forest on rolling hills">
+              <div class="trail-body">
+                <h3>Tamhini Forest Walk</h3>
+                <p>Waterfalls and mossy steps, best right after the monsoon.</p>
+                <dl class="meta">
+                  <div><dt>Distance</dt><dd>9 km</dd></div>
+                  <div><dt>Climb</dt><dd>300 m</dd></div>
+                  <div><dt>Level</dt><dd>Easy–Moderate</dd></div>
+                </dl>
+              </div>
+            </article>
+          </li>
+          <li class="trail-item">
+            <article class="trail-card">
+              <img src="images/trail-meadow.svg" width="640" height="420" loading="lazy" alt="Golden meadow with distant green hills">
+              <div class="trail-body">
+                <h3>Kaas Plateau</h3>
+                <p>Wildflower season walk across an open plateau.</p>
+                <dl class="meta">
+                  <div><dt>Distance</dt><dd>6 km</dd></div>
+                  <div><dt>Climb</dt><dd>80 m</dd></div>
+                  <div><dt>Level</dt><dd>Easy</dd></div>
+                </dl>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="schedule" id="schedule" aria-labelledby="schedule-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="schedule-title">Upcoming hikes</h2>
+          <p>Groups are capped at 15 so nobody gets lost at the back.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="schedule-table">
+            <caption class="visually-hidden">Upcoming Ridgeline hikes with date, trail, meeting time, and spots left</caption>
+            <thead>
+              <tr><th scope="col">Date</th><th scope="col">Trail</th><th scope="col">Meet at</th><th scope="col">Spots left</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" data-label="Date">Sat 7 Nov</th><td data-label="Trail">Rajmachi Ridge</td><td data-label="Meet at">5:30 am, Shivajinagar</td><td data-label="Spots left">6</td></tr>
+              <tr><th scope="row" data-label="Date">Sun 15 Nov</th><td data-label="Trail">Mulshi Lakeside</td><td data-label="Meet at">6:30 am, Baner</td><td data-label="Spots left">11</td></tr>
+              <tr><th scope="row" data-label="Date">Sat 21 Nov</th><td data-label="Trail">Tamhini Forest Walk</td><td data-label="Meet at">6:00 am, Kothrud</td><td data-label="Spots left">3</td></tr>
+              <tr><th scope="row" data-label="Date">Sun 29 Nov</th><td data-label="Trail">Kaas Plateau</td><td data-label="Meet at">5:45 am, Swargate</td><td data-label="Spots left">9</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <h2 id="gallery-title">On the trail</h2>
+        <ul class="gallery-grid">
+          <li class="wide"><img src="images/trail-ridge.svg" width="640" height="420" loading="lazy" alt="Pale blue ridgeline at sunrise"></li>
+          <li><img src="images/trail-forest.svg" width="640" height="420" loading="lazy" alt="Forest canopy in soft green light"></li>
+          <li><img src="images/trail-meadow.svg" width="640" height="420" loading="lazy" alt="Open meadow in late afternoon"></li>
+          <li><img src="images/trail-lake.svg" width="640" height="420" loading="lazy" alt="Lake at dusk"></li>
+          <li><img src="images/trail-summit.svg" width="640" height="420" loading="lazy" alt="Grey summit above cloud"></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title">Before your first hike</h2>
+        <div class="faq-grid">
+          <details>
+            <summary>What should I carry?</summary>
+            <p>Two litres of water, a snack, a rain layer, and shoes with grip. We share the rest of the checklist after you book.</p>
+          </details>
+          <details>
+            <summary>Do I need to be fit?</summary>
+            <p>Not for the Easy trails. If you can walk for two hours, you’ll be fine. Moderate trails assume you walk regularly.</p>
+          </details>
+          <details>
+            <summary>What if it rains?</summary>
+            <p>We hike in light rain. If the forecast is dangerous, we move the date and you keep your spot.</p>
+          </details>
+          <details>
+            <summary>How much does it cost?</summary>
+            <p>₹799 per person covers the guide, entry fees, and breakfast. Transport is shared between members.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="join" id="join" aria-labelledby="join-title">
+      <div class="container join-inner">
+        <div>
+          <h2 id="join-title">Save a spot on the next hike</h2>
+          <p>Tell us where to send the details. We’ll reply within a day.</p>
+        </div>
+        <form class="join-form" action="#" method="post">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="trail">Trail</label>
+            <select id="trail" name="trail">
+              <option>Rajmachi Ridge</option>
+              <option>Mulshi Lakeside</option>
+              <option>Tamhini Forest Walk</option>
+              <option>Kaas Plateau</option>
+            </select>
+          </div>
+          <button type="submit" class="btn">Request a spot</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Ridgeline Trail Club, Pune</p>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+        <li><a href="#">Safety policy</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
