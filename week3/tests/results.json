@@ -1,0 +1,446 @@
+[
+ {
+  "group": "Boot",
+  "test": "No JavaScript errors on load",
+  "pass": true,
+  "detail": "[]"
+ },
+ {
+  "group": "Boot",
+  "test": "All 11 features start (no [Ridgeline] failure logged)",
+  "pass": true,
+  "detail": "[]"
+ },
+ {
+  "group": "Boot",
+  "test": "JS marks the page (html.js, html.no-js removed)",
+  "pass": true,
+  "detail": "js js-reveal"
+ },
+ {
+  "group": "Theme",
+  "test": "Toggle switches light to dark and updates aria-pressed",
+  "pass": true,
+  "detail": "('light', 'dark', 'true')"
+ },
+ {
+  "group": "Theme",
+  "test": "Choice is saved and restored after reload",
+  "pass": true,
+  "detail": "dark"
+ },
+ {
+  "group": "Theme",
+  "test": "With no saved choice, follows the system dark setting",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Mobile menu",
+  "test": "Starts closed on a phone",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Mobile menu",
+  "test": "Button opens it and sets aria-expanded=true",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Mobile menu",
+  "test": "Escape closes it and returns focus to the button",
+  "pass": true,
+  "detail": "nav-toggle"
+ },
+ {
+  "group": "Mobile menu",
+  "test": "Choosing a link closes the menu",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Mobile menu",
+  "test": "Clicking outside closes it",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Mobile menu",
+  "test": "Resizing to desktop closes it and shows the full bar",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Scroll",
+  "test": "Header gains a shadow after scrolling",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Scroll",
+  "test": "Back-to-top button appears, then scrolls to the top",
+  "pass": true,
+  "detail": "0"
+ },
+ {
+  "group": "Scroll",
+  "test": "Scroll-spy marks the current section in the nav",
+  "pass": true,
+  "detail": "#schedule"
+ },
+ {
+  "group": "Scroll",
+  "test": "Reveal: below-fold content starts hidden, then fades in",
+  "pass": true,
+  "detail": "(False, True)"
+ },
+ {
+  "group": "Trail filter",
+  "test": "Starts with all 4 trails and the right count text",
+  "pass": true,
+  "detail": "Showing 4 of 4 trails"
+ },
+ {
+  "group": "Trail filter",
+  "test": "Easy shows 3 trails; Moderate shows 2",
+  "pass": true,
+  "detail": "(3, ['Rajmachi Ridge', 'Tamhini Forest Walk'])"
+ },
+ {
+  "group": "Trail filter",
+  "test": "Chip aria-pressed follows the selection",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Trail filter",
+  "test": "Live search finds one trail and updates the count",
+  "pass": true,
+  "detail": "['Mulshi Lakeside']"
+ },
+ {
+  "group": "Trail filter",
+  "test": "No match shows the empty state with a working Clear button",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Trail filter",
+  "test": "Sort by shortest distance reorders the cards",
+  "pass": true,
+  "detail": "['Kaas Plateau', 'Mulshi Lakeside', 'Tamhini Forest Walk', 'Rajmachi Ridge']"
+ },
+ {
+  "group": "Trail filter",
+  "test": "Sort by name A-Z works",
+  "pass": true,
+  "detail": "['Kaas Plateau', 'Mulshi Lakeside', 'Rajmachi Ridge', 'Tamhini Forest Walk']"
+ },
+ {
+  "group": "Trail filter",
+  "test": "Featured full-row span is removed when customised (no gaps)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Schedule",
+  "test": "Dates are recalculated from the system date (faked as Wed 10 Mar 2027)",
+  "pass": true,
+  "detail": "['Sat 13 Mar', 'Sun 21 Mar', 'Sat 27 Mar', 'Sun 4 Apr', 'Sat 10 Apr']"
+ },
+ {
+  "group": "Schedule",
+  "test": "<time datetime> values are valid ISO dates",
+  "pass": true,
+  "detail": "['2027-03-13', '2027-03-21', '2027-03-27', '2027-04-04', '2027-04-10']"
+ },
+ {
+  "group": "Schedule",
+  "test": "Relative labels (In 3 days, In 11 days)",
+  "pass": true,
+  "detail": "['In 3 days', 'In 11 days', 'In 17 days', 'In 25 days', 'In 31 days']"
+ },
+ {
+  "group": "Schedule",
+  "test": "On a Saturday the first hike says Today",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Schedule",
+  "test": "Reserve column added: 5 buttons, last one Full and disabled",
+  "pass": true,
+  "detail": "5"
+ },
+ {
+  "group": "Schedule",
+  "test": "Status badges: Open / Filling fast / Full",
+  "pass": true,
+  "detail": "['Open', 'Open', 'Filling fast', 'Open', 'Full']"
+ },
+ {
+  "group": "Form",
+  "test": "Reserve pre-fills trail and date, shows spots, focuses the name field",
+  "pass": true,
+  "detail": "('Tamhini Forest Walk', 'h3', 'name')"
+ },
+ {
+  "group": "Form",
+  "test": "Dependent dropdown: Rajmachi lists 2 dates, the full one disabled",
+  "pass": true,
+  "detail": "[['Choose a date', False], ['Sat 7 Nov (6 spots left)', False], ['Sat 5 Dec (Full)', True]]"
+ },
+ {
+  "group": "Form",
+  "test": "Empty submit shows an error summary listing 5 problems and focuses it",
+  "pass": true,
+  "detail": "(5, 'error-summary')"
+ },
+ {
+  "group": "Form",
+  "test": "Invalid fields get aria-invalid and a visible message",
+  "pass": true,
+  "detail": "['name', 'email', 'trail', 'hike-date', 'consent']"
+ },
+ {
+  "group": "Form",
+  "test": "Summary link moves focus to the matching field",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Form",
+  "test": "Bad email gets a specific message; fixing it clears the error live",
+  "pass": true,
+  "detail": "That email does not look right. Try name@example.com."
+ },
+ {
+  "group": "Form",
+  "test": "Name error clears while typing after first visit",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Form",
+  "test": "Group size above the spots left is rejected with a clear message",
+  "pass": true,
+  "detail": "Only 3 spots left on that hike."
+ },
+ {
+  "group": "Form",
+  "test": "Stepper clamps to the spots left (3) and clears the error",
+  "pass": true,
+  "detail": "3"
+ },
+ {
+  "group": "Form",
+  "test": "Valid submit opens the confirmation dialog with the user's details",
+  "pass": true,
+  "detail": "Thanks, Asha Rao. We have held 2 spots on Tamhini Forest Walk (Sat 21 Nov). Meeting details are on their way to asha@example.com."
+ },
+ {
+  "group": "Form",
+  "test": "Booking updates the schedule live: 3 spots to 1, badge unchanged",
+  "pass": true,
+  "detail": "1 Filling fast"
+ },
+ {
+  "group": "Form",
+  "test": "Dialog closes with Escape and focus returns to the submit button",
+  "pass": true,
+  "detail": "BUTTON"
+ },
+ {
+  "group": "Form",
+  "test": "Form is reset after a successful booking",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Form",
+  "test": "Booking the last spot turns the row Full and disables Reserve",
+  "pass": true,
+  "detail": "0 Full"
+ },
+ {
+  "group": "Lightbox",
+  "test": "5 gallery images become 5 real buttons with descriptive labels",
+  "pass": true,
+  "detail": "5"
+ },
+ {
+  "group": "Lightbox",
+  "test": "Opening shows the photo, caption and 'Photo 1 of 5'",
+  "pass": true,
+  "detail": "Photo 1 of 5"
+ },
+ {
+  "group": "Lightbox",
+  "test": "Arrow keys move forward and wrap around backwards",
+  "pass": true,
+  "detail": "('Photo 2 of 5', 'Photo 5 of 5')"
+ },
+ {
+  "group": "Lightbox",
+  "test": "Escape closes it and focus returns to the thumbnail",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "FAQ",
+  "test": "Expand all opens every answer and relabels to Collapse all",
+  "pass": true,
+  "detail": "4"
+ },
+ {
+  "group": "FAQ",
+  "test": "Collapse all closes them; opening one by hand keeps the label right",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "Footer",
+  "test": "Year is filled in from the system date",
+  "pass": true,
+  "detail": "2026"
+ },
+ {
+  "group": "Preferences",
+  "test": "Reduced motion: scroll-reveal is not activated, content visible",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "No JavaScript",
+  "test": "Navigation links stay visible and usable",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "No JavaScript",
+  "test": "JS-only controls (menu button, theme, filters) are hidden",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "No JavaScript",
+  "test": "All content visible: trails, schedule, FAQ, form",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "group": "No JavaScript",
+  "test": "No horizontal overflow",
+  "pass": true,
+  "detail": "0"
+ },
+ {
+  "group": "Layout",
+  "test": "320x568: no sideways scroll with menu, filter and scroll effects active",
+  "pass": true,
+  "detail": "0"
+ },
+ {
+  "group": "Layout",
+  "test": "375x667: no sideways scroll with menu, filter and scroll effects active",
+  "pass": true,
+  "detail": "0"
+ },
+ {
+  "group": "Layout",
+  "test": "768x1024: no sideways scroll with menu, filter and scroll effects active",
+  "pass": true,
+  "detail": "0"
+ },
+ {
+  "group": "Layout",
+  "test": "1024x768: no sideways scroll with menu, filter and scroll effects active",
+  "pass": true,
+  "detail": "0"
+ },
+ {
+  "group": "Layout",
+  "test": "1440x900: no sideways scroll with menu, filter and scroll effects active",
+  "pass": true,
+  "detail": "0"
+ },
+ {
+  "group": "Layout",
+  "test": "1920x1080: no sideways scroll with menu, filter and scroll effects active",
+  "pass": true,
+  "detail": "0"
+ },
+ {
+  "group": "Layout",
+  "test": "360px: Cumulative Layout Shift while loading and scrolling is 0.0000 (good is under 0.1)",
+  "pass": true,
+  "detail": "0"
+ },
+ {
+  "group": "Layout",
+  "test": "1280px: Cumulative Layout Shift while loading and scrolling is 0.0003 (good is under 0.1)",
+  "pass": true,
+  "detail": "0.00030250267982482915"
+ },
+ {
+  "group": "Accessibility (axe)",
+  "test": "light theme, 360px: 55 rules pass, 0 violations",
+  "pass": true,
+  "detail": "[]"
+ },
+ {
+  "group": "Accessibility (axe)",
+  "test": "light theme, 768px: 55 rules pass, 0 violations",
+  "pass": true,
+  "detail": "[]"
+ },
+ {
+  "group": "Accessibility (axe)",
+  "test": "light theme, 1280px: 55 rules pass, 0 violations",
+  "pass": true,
+  "detail": "[]"
+ },
+ {
+  "group": "Accessibility (axe)",
+  "test": "dark theme, 360px: 55 rules pass, 0 violations",
+  "pass": true,
+  "detail": "[]"
+ },
+ {
+  "group": "Accessibility (axe)",
+  "test": "dark theme, 768px: 55 rules pass, 0 violations",
+  "pass": true,
+  "detail": "[]"
+ },
+ {
+  "group": "Accessibility (axe)",
+  "test": "dark theme, 1280px: 55 rules pass, 0 violations",
+  "pass": true,
+  "detail": "[]"
+ },
+ {
+  "group": "Accessibility (axe)",
+  "test": "mobile menu open: 55 rules pass, 0 violations",
+  "pass": true,
+  "detail": "[]"
+ },
+ {
+  "group": "Accessibility (axe)",
+  "test": "form error summary shown: 56 rules pass, 0 violations",
+  "pass": true,
+  "detail": "[]"
+ },
+ {
+  "group": "Accessibility (axe)",
+  "test": "lightbox open: 18 rules pass, 0 violations",
+  "pass": true,
+  "detail": "[]"
+ },
+ {
+  "group": "Accessibility (axe)",
+  "test": "filtered with empty state: 52 rules pass, 0 violations",
+  "pass": true,
+  "detail": "[]"
+ }
+]
