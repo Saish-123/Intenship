@@ -1,0 +1,165 @@
+{
+ "files": {
+  "images/hero-banner.svg": {
+   "raw": 702,
+   "gzip": 352,
+   "brotli": 325
+  },
+  "images/hero-square.svg": {
+   "raw": 656,
+   "gzip": 353,
+   "brotli": 322
+  },
+  "images/trail-forest.svg": {
+   "raw": 524,
+   "gzip": 304,
+   "brotli": 280
+  },
+  "images/trail-lake.svg": {
+   "raw": 521,
+   "gzip": 304,
+   "brotli": 279
+  },
+  "images/trail-meadow.svg": {
+   "raw": 515,
+   "gzip": 300,
+   "brotli": 283
+  },
+  "images/trail-ridge.svg": {
+   "raw": 519,
+   "gzip": 306,
+   "brotli": 280
+  },
+  "images/trail-summit.svg": {
+   "raw": 521,
+   "gzip": 302,
+   "brotli": 278
+  },
+  "fonts/bitter-800.woff2": {
+   "raw": 9260,
+   "gzip": 9283,
+   "brotli": 9264
+  },
+  "fonts/source-sans-3-400.woff2": {
+   "raw": 7460,
+   "gzip": 7483,
+   "brotli": 7464
+  },
+  "fonts/source-sans-3-600.woff2": {
+   "raw": 7504,
+   "gzip": 7527,
+   "brotli": 7508
+  },
+  "favicon.svg": {
+   "raw": 220,
+   "gzip": 187,
+   "brotli": 160
+  },
+  "css/critical.css (inlined)": {
+   "raw": 7194,
+   "gzip": 2450,
+   "brotli": 2141
+  },
+  "css/main.css": {
+   "raw": 10495,
+   "gzip": 2783,
+   "brotli": 2433
+  },
+  "css/critical.css": {
+   "raw": 7173,
+   "gzip": 2444,
+   "brotli": 2135
+  },
+  "js/script.js": {
+   "raw": 14294,
+   "gzip": 5370,
+   "brotli": 4784
+  },
+  "index.html": {
+   "raw": 24150,
+   "gzip": 7241,
+   "brotli": 6087
+  },
+  "policies.html": {
+   "raw": 3372,
+   "gzip": 1505,
+   "brotli": 1127
+  }
+ },
+ "before": {
+  "images/hero-banner.svg": {
+   "raw": 8659,
+   "gzip": 2500,
+   "brotli": 2325
+  },
+  "images/hero-square.svg": {
+   "raw": 8623,
+   "gzip": 2501,
+   "brotli": 2312
+  },
+  "images/trail-forest.svg": {
+   "raw": 8454,
+   "gzip": 2431,
+   "brotli": 2288
+  },
+  "images/trail-lake.svg": {
+   "raw": 8455,
+   "gzip": 2430,
+   "brotli": 2271
+  },
+  "images/trail-meadow.svg": {
+   "raw": 8455,
+   "gzip": 2428,
+   "brotli": 2265
+  },
+  "images/trail-ridge.svg": {
+   "raw": 8455,
+   "gzip": 2428,
+   "brotli": 2274
+  },
+  "images/trail-summit.svg": {
+   "raw": 8454,
+   "gzip": 2432,
+   "brotli": 2283
+  },
+  "fonts/bitter-800.woff2": {
+   "raw": 9260
+  },
+  "fonts/source-sans-3-400.woff2": {
+   "raw": 7460
+  },
+  "fonts/source-sans-3-600.woff2": {
+   "raw": 7504
+  },
+  "favicon.svg": {
+   "raw": 7995,
+   "gzip": 2216,
+   "brotli": 2143
+  },
+  "css/critical.css": {
+   "raw": 10730,
+   "gzip": 3599,
+   "brotli": 2995
+  },
+  "css/main.css": {
+   "raw": 14731,
+   "gzip": 3856,
+   "brotli": 3216
+  },
+  "js/script.js": {
+   "raw": 28369,
+   "gzip": 8621,
+   "brotli": 7441
+  },
+  "index.html": {
+   "raw": 20506,
+   "gzip": 5354,
+   "brotli": 4343
+  },
+  "policies.html": {
+   "raw": 3862,
+   "gzip": 1560,
+   "brotli": 1169
+  }
+ }
+}

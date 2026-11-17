@@ -1,0 +1,193 @@
+{
+ "keyboard_1280": {
+  "stops": 41,
+  "obscured_by_header": [],
+  "obscured_by_totop": [],
+  "partly_covered_by_totop": [],
+  "partly_under_header": [],
+  "no_visible_indicator": [],
+  "off_screen": []
+ },
+ "keyboard_360": {
+  "stops": 37,
+  "obscured_by_header": [],
+  "obscured_by_totop": [],
+  "partly_covered_by_totop": [
+   "Reserve Kaas Plateau on Sun ",
+   "View larger: Grey summit abo",
+   "How much does it cost?",
+   "Safety policy"
+  ],
+  "partly_under_header": [],
+  "no_visible_indicator": [],
+  "off_screen": []
+ },
+ "table_tree_360": {
+  "has_table_role": true,
+  "has_rows": true,
+  "has_columnheader": true,
+  "snapshot_head": "- table \"Upcoming Ridgeline hikes with date, trail, meeting point, and spots left\":\n  - caption: Upcoming Ridgeline hikes with date, trail, meeting point, and spots left\n  - rowgroup:\n    - row \"Date Trail Meet at Spots left Reserve\":\n      - columnheader \"Date\"\n      - columnheader \"Trail\"\n      - "
+ },
+ "table_tree_1280": {
+  "has_table_role": true,
+  "has_columnheader": true
+ },
+ "forced_colors": {
+  "hamburger_bar_matches_page_background": true,
+  "barBg": "rgb(255, 255, 255)",
+  "pageBg": "rgb(255, 255, 255)",
+  "chip_state_distinguishable": false,
+  "chipPressed": "rgb(255, 255, 255)|rgb(0, 0, 0)|rgb(0, 0, 0)|2px|none|none",
+  "chipOther": "rgb(255, 255, 255)|rgb(0, 0, 0)|rgb(0, 0, 0)|2px|none|none"
+ },
+ "text_spacing_360": {
+  "overflow_px": 0,
+  "clipped": []
+ },
+ "text_spacing_1280": {
+  "overflow_px": 0,
+  "clipped": []
+ },
+ "images": [
+  {
+   "src": "hero-banner.svg",
+   "alt": "Layered green mountain ridges under a warm sunrise sky",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "auto",
+   "priority": "high"
+  },
+  {
+   "src": "trail-summit.svg",
+   "alt": "Grey-blue summit ridge in morning light",
+   "inCard": true,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-lake.svg",
+   "alt": "Calm lake below warm brown hills",
+   "inCard": true,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-forest.svg",
+   "alt": "Dense dark-green forest on rolling hills",
+   "inCard": true,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-meadow.svg",
+   "alt": "Golden meadow with distant green hills",
+   "inCard": true,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-ridge.svg",
+   "alt": "Pale blue ridgeline at sunrise",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-forest.svg",
+   "alt": "Forest canopy in soft green light",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-meadow.svg",
+   "alt": "Open meadow in late afternoon",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-lake.svg",
+   "alt": "Lake at dusk",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-summit.svg",
+   "alt": "Grey summit above cloud",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-ridge.svg",
+   "alt": "",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "auto",
+   "priority": null
+  }
+ ],
+ "headings": [
+  "H1: Get out of the city. Back by S",
+  "H2: Trails we run",
+  "H3: Rajmachi Ridge",
+  "H3: Mulshi Lakeside",
+  "H3: Tamhini Forest Walk",
+  "H3: Kaas Plateau",
+  "H2: Upcoming hikes",
+  "H2: On the trail",
+  "H2: Before your first hike",
+  "H2: Save a spot on the next hike",
+  "H3: Please fix the problems below",
+  "H2: You\u2019re on the list"
+ ],
+ "landmarks": {
+  "main": 1,
+  "banner": 1,
+  "nav": 1,
+  "navLabels": [
+   "Main navigation"
+  ],
+  "footer": 1,
+  "mainFocusable": false,
+  "deadLinks": [
+   "Safety policy",
+   "Privacy"
+  ],
+  "currentValue": "aria-current uses: n/a",
+  "requiredHintVisible": false
+ },
+ "coverage": {
+  "css:styles.css": {
+   "file_bytes": 20648,
+   "rules": 193,
+   "unused_rules": 0,
+   "rule_bytes_used_pct": 100.0,
+   "unused_rule_samples": []
+  },
+  "js:script.js": {
+   "named_functions": 65,
+   "never_called": [
+    "get",
+    "closeDialog",
+    "distance-asc",
+    "distance-desc",
+    "climb-asc",
+    "afterTrailOrDateChange",
+    "showSummary",
+    "dialog.addEventListener.passive"
+   ]
+  }
+ }
+}

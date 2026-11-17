@@ -1,0 +1,892 @@
+/* ==========================================================
+   Ridgeline Trail Club | MAIN CSS (Week 4)
+   Everything below the first screen. Loaded without blocking
+   render; critical.css already covers tokens, header and hero.
+   Contents
+   1. Shared pieces   2. Trails   3. Schedule   4. Gallery
+   5. FAQ             6. Join form  7. Footer   8. Overlays
+   9. Policy pages   10. Breakpoints  11. Preferences + print
+   ========================================================== */
+
+/* 1. SHARED PIECES */
+.section-head {
+  margin-bottom: var(--gap);
+}
+
+.btn-small {
+  padding: 0.45rem 1rem;
+  font-size: 0.95rem;
+}
+
+.link-btn {
+  min-height: 2.75rem;
+  padding: 0.25rem 0.5rem;
+  font: 600 1rem var(--font-body);
+  color: var(--link);
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.trails,
+.schedule,
+.gallery,
+.faq {
+  padding-block: var(--section-y);
+}
+
+.trails,
+.faq {
+  background: var(--bg-alt);
+}
+
+/* 2. TRAILS: toolbar, cards, container queries */
+.toolbar {
+  margin-bottom: var(--gap);
+}
+
+.toolbar-row {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.4rem 1.1rem;
+  font: 600 1rem var(--font-body);
+  color: var(--text);
+  cursor: pointer;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.chip:hover {
+  border-color: var(--heading);
+}
+
+.chip[aria-pressed="true"] {
+  color: var(--bg);
+  background: var(--heading);
+  border-color: var(--heading);
+}
+
+/* A drawn tick, so the selected state does not rely on colour alone
+   (helps colour-blind users and survives Windows High Contrast) */
+.chip[aria-pressed="true"]::before {
+  width: 0.35em;
+  height: 0.65em;
+  content: "";
+  border: solid currentcolor;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translate(-0.05em, -0.1em);
+}
+
+.tool-field label {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.tool-field input,
+.tool-field select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.8rem;
+  font: 1rem var(--font-body);
+  color: var(--text);
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.result-count {
+  margin: 0.75rem 0 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.empty-state {
+  padding: 1.5rem;
+  text-align: center;
+  background: var(--surface);
+  border: 2px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+.trail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: var(--gap);
+}
+
+.trail-item {
+  container-type: inline-size;
+}
+
+.trail-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  height: 100%;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.trail-card img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 3 / 2;
+}
+
+.trail-body {
+  padding: 1.25rem;
+}
+
+.trail-card p {
+  color: var(--muted);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0;
+}
+
+.meta div {
+  min-width: 0;
+}
+
+.meta dt,
+.meta dd {
+  overflow-wrap: anywhere;
+}
+
+.meta dt {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.meta dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+@container (min-width: 480px) {
+  .trail-card {
+    grid-template-columns: 5fr 7fr;
+  }
+
+  .trail-card img {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
+
+/* Filtered or sorted list: drop the featured full-row span so no gaps appear */
+.trail-grid.is-custom {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+
+.trail-grid.is-custom .trail-item--featured {
+  grid-column: auto;
+}
+
+/* 3. SCHEDULE: table on wide screens, labelled cards on phones */
+.table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.schedule-table,
+.schedule-table tbody {
+  display: block;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.schedule-table thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.schedule-table tr {
+  display: block;
+  padding: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.schedule-table tr:last-child {
+  border-bottom: 0;
+}
+
+.schedule-table th,
+.schedule-table td {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+  overflow-wrap: anywhere;
+  font-weight: 400;
+  text-align: left;
+}
+
+.schedule-table th[scope="row"] {
+  font-weight: 600;
+}
+
+.schedule-table [data-label]::before {
+  font-weight: 600;
+  color: var(--muted);
+  content: attr(data-label);
+}
+
+.schedule-table .cell-action {
+  justify-content: flex-end;
+  padding-top: 0.5rem;
+}
+
+.date-cell {
+  display: grid;
+  text-align: right;
+}
+
+.when {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  margin-left: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid currentcolor;
+  border-radius: 999px;
+}
+
+.badge--ok {
+  color: var(--ok);
+}
+
+.badge--warn {
+  color: var(--warn);
+}
+
+.badge--full {
+  color: var(--danger);
+}
+
+.row-flash {
+  animation: flash 1.6s ease-out;
+}
+
+/* 4. GALLERY */
+.gallery-hint {
+  margin-top: -0.25rem;
+  color: var(--muted);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: var(--gap);
+}
+
+.gallery-grid img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+}
+
+.gallery-grid .wide {
+  grid-column: span 2;
+}
+
+.gallery-grid .wide img {
+  object-position: center 65%;
+  aspect-ratio: 8 / 3;
+}
+
+.gallery-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: none;
+  border: 0;
+  border-radius: var(--radius);
+}
+
+/* 5. FAQ */
+.faq-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+  margin-top: var(--gap);
+}
+
+details {
+  padding: 0 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+summary {
+  padding: 1rem 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+details[open] summary {
+  color: var(--heading);
+}
+
+details p {
+  margin-bottom: 1rem;
+}
+
+/* 6. JOIN FORM (a fixed dark-green panel, so it uses the --panel-* tokens) */
+.join {
+  padding-block: var(--section-y);
+  color: var(--panel-text);
+  background: var(--panel-bg);
+}
+
+.join h2,
+.join h3 {
+  color: var(--panel-text);
+}
+
+.join a {
+  color: inherit;
+}
+
+.join-inner,
+.join-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.join-inner {
+  gap: var(--gap);
+}
+
+.join-form {
+  gap: 1rem;
+}
+
+.join-note,
+.field-hint {
+  font-size: 0.95rem;
+  color: var(--panel-muted);
+}
+
+.form-note {
+  margin: 0;
+  font-weight: 600;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.field input:not([type="checkbox"]),
+.field select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.9rem;
+  font: 1rem var(--font-body);
+  color: var(--field-text);
+  background: var(--field-bg);
+  border: 2px solid var(--field-bg);
+  border-radius: var(--radius);
+}
+
+.field input:disabled,
+.field select:disabled {
+  color: var(--field-off-text);
+  background: var(--field-off-bg);
+}
+
+.field [aria-invalid="true"] {
+  border-color: var(--invalid);
+  box-shadow: 0 0 0 2px var(--invalid);
+}
+
+.field-error {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--invalid-text);
+}
+
+.field-hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+}
+
+.field-check {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.75rem;
+  align-items: start;
+}
+
+.field-check input {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: 0.15rem;
+  accent-color: var(--accent);
+}
+
+.field-check label {
+  margin: 0;
+  font-weight: 400;
+}
+
+.field-check .field-error {
+  grid-column: 1 / -1;
+}
+
+.stepper {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.5rem;
+}
+
+.no-js .stepper {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.stepper input {
+  text-align: center;
+}
+
+.stepper-btn {
+  width: 2.75rem;
+  min-height: 2.75rem;
+  font: 600 1.3rem var(--font-body);
+  color: var(--field-text);
+  cursor: pointer;
+  background: var(--field-bg);
+  border: 2px solid var(--field-bg);
+  border-radius: var(--radius);
+}
+
+.stepper-btn:hover {
+  background: var(--field-off-bg);
+}
+
+.error-summary {
+  padding: 1rem 1.1rem;
+  color: var(--summary-text);
+  background: var(--summary-bg);
+  border-left: 5px solid var(--summary-edge);
+  border-radius: var(--radius);
+}
+
+.error-summary h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+  color: var(--summary-text);
+}
+
+.error-summary ul {
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+
+.error-summary a {
+  color: var(--summary-text);
+}
+
+.join :focus-visible {
+  outline-color: var(--panel-text);
+}
+
+.error-summary:focus-visible {
+  outline-color: var(--summary-edge);
+}
+
+/* 7. FOOTER */
+.site-footer {
+  padding-block: 1.25rem;
+  color: var(--footer-text);
+  background: var(--footer-bg);
+}
+
+.site-footer a {
+  color: var(--footer-text);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-inner p {
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}
+
+.footer-links a {
+  display: inline-block;
+  padding-block: 0.5rem; /* 24px+ tap target */
+}
+
+/* 8. OVERLAYS AND MOTION: back-to-top, scroll reveal, dialogs */
+.to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 15;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  color: var(--on-accent);
+  cursor: pointer;
+  background: var(--accent);
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 25%);
+  opacity: 0;
+  transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+  transform: translateY(12px);
+  visibility: hidden;
+}
+
+.to-top svg {
+  width: 22px;
+  height: 22px;
+}
+
+.to-top.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
+/* Scroll reveal: only active once JS adds .js-reveal, so no-JS users see everything */
+.js-reveal .reveal {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(18px);
+}
+
+.js-reveal .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.dialog {
+  width: min(92vw, 30rem);
+  padding: 1.5rem;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.dialog::backdrop {
+  background: rgb(0 0 0 / 60%);
+}
+
+.dialog[open] {
+  animation: pop 0.2s ease-out;
+}
+
+html:has(dialog[open]) {
+  overflow: hidden; /* the page stays put behind a modal */
+}
+
+.lightbox {
+  width: min(94vw, 46rem);
+}
+
+.lightbox-figure {
+  margin: 0 0 0.75rem;
+}
+
+.lightbox-figure img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radius);
+}
+
+.lightbox-figure figcaption {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+.lightbox-help {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.lightbox-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes flash {
+  from {
+    background: color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+}
+
+/* 9. POLICY PAGES (policies.html) */
+.doc {
+  padding-block: var(--section-y);
+}
+
+.doc-inner {
+  max-width: 46rem;
+}
+
+.doc-toc {
+  margin-bottom: 2rem;
+}
+
+.doc-toc ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.doc-toc a {
+  display: inline-block;
+  padding-block: 0.5rem;
+}
+
+.doc section {
+  margin-top: 2.5rem;
+  scroll-margin-top: 5rem;
+}
+
+.doc-list {
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.doc-list li {
+  max-width: 62ch;
+  margin-bottom: 0.5rem;
+}
+
+/* 10. BREAKPOINTS (mobile-first: each one only adds) */
+@media (min-width: 560px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .toolbar-row {
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+  }
+
+  .chips {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 760px) {
+  .toolbar-row {
+    grid-template-columns: auto 1fr 12rem;
+    gap: 1rem;
+  }
+
+  .chips {
+    grid-column: auto;
+  }
+
+  .schedule-table {
+    display: table;
+  }
+
+  .schedule-table tbody {
+    display: table-row-group;
+  }
+
+  .schedule-table thead {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+
+  .schedule-table tr {
+    display: table-row;
+    padding: 0;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    display: table-cell;
+    padding: 0.9rem 1.1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .schedule-table thead th {
+    font-weight: 600;
+    background: var(--bg-alt);
+  }
+
+  .schedule-table tbody tr:last-child > * {
+    border-bottom: 0;
+  }
+
+  .schedule-table [data-label]::before {
+    content: none;
+  }
+
+  .schedule-table .cell-action {
+    text-align: right;
+  }
+
+  .date-cell {
+    text-align: left;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .join-inner {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .footer-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 960px) {
+  .trail-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .trail-item--featured {
+    grid-column: 1 / -1;
+  }
+}
+
+/* 11. USER PREFERENCES AND PRINT */
+@media (hover: hover) {
+  .trail-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .trail-card:hover {
+    box-shadow: 0 8px 18px rgb(0 0 0 / 18%);
+    transform: translateY(-3px);
+  }
+
+  .gallery-btn img {
+    transition: transform 0.3s;
+  }
+
+  .gallery-btn:hover img {
+    transform: scale(1.05);
+  }
+}
+
+/* High Contrast mode removes backgrounds and shadows, so mark invalid fields with an outline */
+@media (forced-colors: active) {
+  .field [aria-invalid="true"] {
+    outline: 3px solid Mark;
+    outline-offset: 2px;
+  }
+
+  .chip[aria-pressed="true"] {
+    outline: 3px solid Highlight;
+  }
+
+  .badge {
+    forced-color-adjust: none;
+  }
+}
+
+@media print {
+  .site-header,
+  .join,
+  .btn-row,
+  .to-top,
+  .toolbar,
+  .reserve-btn,
+  .cell-action {
+    display: none !important;
+  }
+
+  .js-reveal .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  details {
+    border: 0;
+  }
+}

@@ -1,0 +1,193 @@
+{
+ "keyboard_1280": {
+  "stops": 41,
+  "obscured_by_header": [],
+  "obscured_by_totop": [],
+  "partly_covered_by_totop": [],
+  "partly_under_header": [],
+  "no_visible_indicator": [],
+  "off_screen": []
+ },
+ "keyboard_360": {
+  "stops": 37,
+  "obscured_by_header": [],
+  "obscured_by_totop": [],
+  "partly_covered_by_totop": [],
+  "partly_under_header": [],
+  "no_visible_indicator": [],
+  "off_screen": []
+ },
+ "table_tree_360": {
+  "has_table_role": true,
+  "has_rows": true,
+  "has_columnheader": true,
+  "snapshot_head": "- table \"Upcoming Ridgeline hikes with date, trail, meeting point, and spots left\":\n  - caption: Upcoming Ridgeline hikes with date, trail, meeting point, and spots left\n  - rowgroup:\n    - row \"Date Trail Meet at Spots left Reserve\":\n      - columnheader \"Date\"\n      - columnheader \"Trail\"\n      - "
+ },
+ "table_tree_1280": {
+  "has_table_role": true,
+  "has_columnheader": true
+ },
+ "forced_colors": {
+  "hamburger_bar_matches_page_background": false,
+  "barBg": "rgb(0, 0, 0)",
+  "pageBg": "rgb(255, 255, 255)",
+  "chip_state_distinguishable": true,
+  "chipPressed": "rgb(255, 255, 255)|rgb(0, 0, 0)|rgb(0, 0, 0)|2px|solid|\"\"",
+  "chipOther": "rgb(255, 255, 255)|rgb(0, 0, 0)|rgb(0, 0, 0)|2px|none|none"
+ },
+ "text_spacing_360": {
+  "overflow_px": 0,
+  "clipped": []
+ },
+ "text_spacing_1280": {
+  "overflow_px": 0,
+  "clipped": []
+ },
+ "images": [
+  {
+   "src": "hero-banner.8b2fc9ab.svg",
+   "alt": "",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "auto",
+   "priority": "high"
+  },
+  {
+   "src": "trail-summit.4ce2c760.svg",
+   "alt": "",
+   "inCard": true,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-lake.399763cb.svg",
+   "alt": "",
+   "inCard": true,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-forest.e4f00744.svg",
+   "alt": "",
+   "inCard": true,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-meadow.08cb702e.svg",
+   "alt": "",
+   "inCard": true,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-ridge.c4be183a.svg",
+   "alt": "Pale blue ridgeline at sunrise",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-forest.e4f00744.svg",
+   "alt": "Forest canopy in soft green light",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-meadow.08cb702e.svg",
+   "alt": "Open meadow in late afternoon",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-lake.399763cb.svg",
+   "alt": "Lake at dusk",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-summit.4ce2c760.svg",
+   "alt": "Grey summit above cloud",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "lazy",
+   "priority": null
+  },
+  {
+   "src": "trail-ridge.c4be183a.svg",
+   "alt": "",
+   "inCard": false,
+   "hasSize": true,
+   "lazy": "auto",
+   "priority": null
+  }
+ ],
+ "headings": [
+  "H1: Get out of the city. Back by S",
+  "H2: Trails we run",
+  "H3: Rajmachi Ridge",
+  "H3: Mulshi Lakeside",
+  "H3: Tamhini Forest Walk",
+  "H3: Kaas Plateau",
+  "H2: Upcoming hikes",
+  "H2: On the trail",
+  "H2: Before your first hike",
+  "H2: Save a spot on the next hike",
+  "H3: Please fix the problems below",
+  "H2: You\u2019re on the list"
+ ],
+ "landmarks": {
+  "main": 1,
+  "banner": 1,
+  "nav": 2,
+  "navLabels": [
+   "Main navigation",
+   "Footer"
+  ],
+  "footer": 1,
+  "mainFocusable": true,
+  "deadLinks": [],
+  "currentValue": "aria-current uses: n/a",
+  "requiredHintVisible": true
+ },
+ "coverage": {
+  "css:main.35bba623.css": {
+   "file_bytes": 10495,
+   "rules": 130,
+   "unused_rules": 0,
+   "rule_bytes_used_pct": 100.0,
+   "unused_rule_samples": []
+  },
+  "css:inline-style": {
+   "file_bytes": 7194,
+   "rules": 67,
+   "unused_rules": 0,
+   "rule_bytes_used_pct": 100.0,
+   "unused_rule_samples": []
+  },
+  "js:script.51f3ba89.js": {
+   "named_functions": 59,
+   "never_called": [
+    "get",
+    "q",
+    "distance-asc",
+    "distance-desc",
+    "climb-asc",
+    "H",
+    "it",
+    "t.addEventListener.passive"
+   ]
+  }
+ }
+}

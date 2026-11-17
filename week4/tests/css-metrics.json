@@ -1,0 +1,38 @@
+{
+ "week3": {
+  "raw_bytes": 20648,
+  "rules": 206,
+  "selectors": 237,
+  "declarations": 576,
+  "hardcoded_colour_literals_outside_tokens": 29,
+  "unique_hex_colours": 32,
+  "important": 5,
+  "max_specificity": [
+   0,
+   4,
+   1
+  ],
+  "max_selector_depth": 4,
+  "id_selectors": 0,
+  "media_queries": 7,
+  "custom_properties_defined": 22
+ },
+ "week4": {
+  "raw_bytes": 25462,
+  "rules": 230,
+  "selectors": 266,
+  "declarations": 654,
+  "hardcoded_colour_literals_outside_tokens": 0,
+  "unique_hex_colours": 32,
+  "important": 5,
+  "max_specificity": [
+   0,
+   4,
+   1
+  ],
+  "max_selector_depth": 4,
+  "id_selectors": 0,
+  "media_queries": 13,
+  "custom_properties_defined": 35
+ }
+}

@@ -1,0 +1,71 @@
+{
+ "360": {
+  ".hero": {
+   "changed_pct": 0.128
+  },
+  ".trails": {
+   "changed_pct": 0.588
+  },
+  ".schedule": {
+   "changed_pct": 0.006
+  },
+  ".gallery": {
+   "changed_pct": 0.027
+  },
+  ".faq": {
+   "changed_pct": 0.339
+  },
+  ".join-intro": {
+   "changed_pct": 0.174
+  },
+  ".site-footer": {
+   "changed_pct": 0.0
+  }
+ },
+ "768": {
+  ".hero": {
+   "changed_pct": 0.123
+  },
+  ".trails": {
+   "changed_pct": 0.643
+  },
+  ".schedule": {
+   "changed_pct": 0.019
+  },
+  ".gallery": {
+   "changed_pct": 0.038
+  },
+  ".faq": {
+   "changed_pct": 0.338
+  },
+  ".join-intro": {
+   "changed_pct": 0.343
+  },
+  ".site-footer": {
+   "changed_pct": 0.0
+  }
+ },
+ "1280": {
+  ".hero": {
+   "changed_pct": 0.071
+  },
+  ".trails": {
+   "changed_pct": 0.398
+  },
+  ".schedule": {
+   "changed_pct": 0.014
+  },
+  ".gallery": {
+   "changed_pct": 0.031
+  },
+  ".faq": {
+   "changed_pct": 0.184
+  },
+  ".join-intro": {
+   "changed_pct": 0.652
+  },
+  ".site-footer": {
+   "changed_pct": 0.0
+  }
+ }
+}

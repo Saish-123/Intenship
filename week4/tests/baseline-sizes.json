@@ -1,0 +1,27 @@
+{
+ "index.html": {
+  "raw": 19204,
+  "gzip": 5155,
+  "brotli": 4180
+ },
+ "styles.css": {
+  "raw": 20648,
+  "gzip": 5189,
+  "brotli": 4427
+ },
+ "script.js": {
+  "raw": 27959,
+  "gzip": 8408,
+  "brotli": 7268
+ },
+ "images (7 SVG)": {
+  "raw": 59555,
+  "gzip": 17150,
+  "brotli": 16018
+ },
+ "fonts (4 latin woff2)": {
+  "raw": 69540,
+  "gzip": 69642,
+  "brotli": 69523
+ }
+}

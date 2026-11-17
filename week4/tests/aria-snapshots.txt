@@ -1,0 +1,80 @@
+## Header and navigation (360px, menu closed)
+- banner:
+  - link "Ridgeline Trail Club, back to top":
+    - /url: "#top"
+    - text: Ridgeline
+  - button "Dark mode"
+  - button "Menu"
+
+## Header after opening the menu
+- banner:
+  - link "Ridgeline Trail Club, back to top":
+    - /url: "#top"
+    - text: Ridgeline
+  - button "Dark mode"
+  - button "Menu" [expanded]
+  - navigation "Main navigation":
+    - list:
+      - listitem:
+        - link "Trails":
+          - /url: "#trails"
+      - listitem:
+        - link "Schedule":
+          - /url: "#schedule"
+      - listitem:
+        - link "Gallery":
+          - /url: "#gallery"
+      - listitem:
+        - link "FAQ":
+          - /url: "#faq"
+      - listitem:
+        - link "Join a hike":
+          - /url: "#join"
+
+## Schedule table at 360px (stacked cards keep table semantics)
+- table "Upcoming Ridgeline hikes with date, trail, meeting point, and spots left":
+  - caption: Upcoming Ridgeline hikes with date, trail, meeting point, and spots left
+  - rowgroup:
+    - row "Date Trail Meet at Spots left Reserve":
+      - columnheader "Date"
+      - columnheader "Trail"
+      - columnheader "Meet at"
+      - columnheader "Spots left"
+      - columnheader "Reserve"
+  - rowgroup:
+    - row "Date Sat 21 Nov In 4 days Trail Rajmachi Ridge Meet at 5:30 am, Shivajinagar Spots left 6 Open Reserve Rajmachi Ridge on Sat 21 Nov":
+      - rowheader "Date Sat 21 Nov In 4 days":
+        - text: Date
+        - time: Sat 21 Nov
+        - text: In 4 days
+      - cell "Trail Rajmachi Ridge"
+      - cell "Meet at 5:30 am, Shivajinagar"
+      - cell "Spots left 6 Open"
+      - cell "Reserve Rajmachi Ridge on Sat 21 Nov":
+        - button "Reserve Rajmachi Ridge on Sat 21 Nov": Reserve
+
+
+## Form fields
+- paragraph: All fields are required.
+- text: Your name
+- textbox "Your name"
+- text: Email
+- textbox "Email"
+- text: Trail
+- combobox "Trail":
+  - option "Choose a trail" [selected]
+  - option "Rajmachi Ridge"
+  - option "Mulshi Lakeside"
+  - option "Tamhini Forest Walk"
+  - option "Kaas Plateau"
+- text: Date
+- combobox "Date" [disabled]:
+  - option "Choose a trail first" [selected]
+- text: Group size
+- button "Fewer people": −
+- spinbutton "Group size": "1"
+- button "More people": +
+- paragraph: Up to 6 people per booking.
+- checkbox "I have read the safety policy and can walk the distance listed."
+- text: I have read the safety policy and can walk the distance listed.
+- button "Request a spot"

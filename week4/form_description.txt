@@ -1,0 +1,7 @@
+For Week 4 I audited my Week 3 Ridgeline Trail Club page for performance and accessibility, fixed what I found, and measured the results. The report follows the brief's order: analyse, improve, then prove. Lighthouse and axe already scored around 100 on the starting page, so most of the real findings came from my own tests, including keyboard walks, Windows High Contrast emulation, a text-spacing override and colour-blindness simulation.
+
+On performance I self-hosted and subset the fonts, inlined critical CSS, minified the code, optimised the SVG images, added a favicon, and gave every file a content hash for long-term caching. On a simulated slow mobile connection, Largest Contentful Paint fell from 1564 ms to 699 ms, layout shift went from 0.0365 to zero, data transferred fell by about 49 percent, and Best Practices rose from 96 to 100. I also report an honest trade-off: Total Blocking Time rose in the lab because work moved after the earlier first paint, and I compared three CSS delivery strategies to explain it.
+
+On accessibility I fixed eleven issues that automated tools missed, including focus hidden behind a floating button, a menu icon and selected state that disappeared in forced-colours mode, dead footer links, decorative images with noisy alt text, and missing form instructions.
+
+A suite of 102 automated checks passes, axe reports zero violations in light and dark themes, and the linters report no errors. The report documents the tools used, the debugging log, limitations such as Chromium-only testing, and specific next steps.

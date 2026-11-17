@@ -1,0 +1,571 @@
+/* ==========================================================
+   Ridgeline Trail Club | CRITICAL CSS (Week 4)
+   Everything needed to paint the first screen: tokens, fonts,
+   base, header/nav and hero. Inlined into <head> at build time
+   so the first paint never waits for a CSS download.
+   The rest of the styles live in main.css (loaded without blocking).
+   ========================================================== */
+
+/* 1. FONTS: self-hosted, subset to the characters this site uses.
+      font-display: swap shows text immediately in the fallback. */
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/source-sans-3-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/source-sans-3-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Bitter";
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/bitter-800.woff2") format("woff2");
+}
+
+/* Fallback faces scaled to match Source Sans 3, so text does not jump
+   when the web font arrives (measured from the real glyph widths). */
+@font-face {
+  font-family: "Source Sans Fallback";
+  font-weight: 400;
+  src: local("Arial"), local("Liberation Sans");
+  size-adjust: 94.72%;
+  ascent-override: 108.1%;
+  descent-override: 42.23%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Source Sans Fallback";
+  font-weight: 600;
+  src: local("Arial Bold"), local("Liberation Sans Bold");
+  size-adjust: 90.1%;
+  ascent-override: 113.6%;
+  descent-override: 44.4%;
+  line-gap-override: 0%;
+}
+
+/* 2. TOKENS: every colour is a role, so a theme only swaps values */
+:root {
+  --bg: #f5f7f3;
+  --bg-alt: #e3e9e1;
+  --surface: #fff;
+  --text: #1b2620;
+  --muted: #4d5b52;
+  --heading: #1d3b2f;
+  --link: #2f5d4a;
+  --line: #c8d1c5;
+  --accent: #b45309; /* white on this = 5.0:1 (WCAG AA) */
+  --accent-dark: #8f3f08;
+  --on-accent: #fff;
+  --focus: #b45309;
+  --ok: #1d6b3a;
+  --warn: #9a4a00;
+  --danger: #a3271c;
+  --footer-bg: #1b2620;
+  --footer-text: #f5f7f3;
+
+  /* The dark-green form panel keeps its own colours in both themes */
+  --panel-bg: #1d3b2f;
+  --panel-text: #fff;
+  --panel-muted: #d3e6da;
+  --field-bg: #fff;
+  --field-text: #1b2620;
+  --field-off-bg: #e3e9e1;
+  --field-off-text: #4d5b52;
+  --invalid: #ff9d8a;
+  --invalid-text: #ffd9d1;
+  --summary-bg: #fff3ef;
+  --summary-text: #6f1a0a;
+  --summary-edge: #c2410c;
+  --font-head: "Bitter", georgia, serif;
+  --font-body: "Source Sans 3", "Source Sans Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --gap: clamp(1rem, 3vw, 2rem);
+  --section-y: clamp(3rem, 8vw, 6rem);
+  --radius: 8px;
+  --max: 1100px;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #101814;
+  --bg-alt: #17211b;
+  --surface: #1c2822;
+  --text: #e4ebe6;
+  --muted: #a9b8ae;
+  --heading: #cde8d9;
+  --link: #8fd3ae;
+  --line: #31433a;
+  --focus: #f0a35e;
+  --ok: #7fdc9f;
+  --warn: #ffc27a;
+  --danger: #ff9d92;
+  --footer-bg: #0a100d;
+  --footer-text: #e4ebe6;
+  color-scheme: dark;
+}
+
+/* People who ask their system for more contrast get stronger borders and secondary text */
+@media (prefers-contrast: more) {
+  :root {
+    --line: #4d5b52;
+    --muted: #1b2620;
+  }
+
+  :root[data-theme="dark"] {
+    --line: #a9b8ae;
+    --muted: #e4ebe6;
+  }
+}
+
+/* 3. BASE */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-block: 5rem; /* anchors and keyboard focus never land under the sticky header or the back-to-top button */
+}
+
+body {
+  position: relative;
+  margin: 0;
+  overflow-wrap: break-word;
+  font: 1.0625rem/1.65 var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.6em;
+  overflow-wrap: break-word;
+  font-family: var(--font-head);
+  font-weight: 800; /* the only heading weight we ship: one font file instead of two */
+  line-height: 1.15;
+  color: var(--heading);
+}
+
+h1 {
+  font-size: clamp(2rem, 1.2rem + 4vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(1.6rem, 1.2rem + 2vw, 2.3rem);
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+p {
+  max-width: 62ch;
+  margin: 0 0 1em;
+}
+
+a {
+  overflow-wrap: anywhere;
+  color: var(--link);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+main:focus {
+  outline: 0; /* the skip link moves focus here; the page is not a control */
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* 4. HELPERS */
+.container {
+  width: min(100% - 2rem, var(--max));
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: -999px;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+  z-index: 40;
+  padding: 0.5rem 1rem;
+  color: var(--text);
+  background: var(--surface);
+}
+
+/* Controls that need JavaScript disappear when it is missing */
+.no-js .js-only {
+  display: none !important;
+}
+
+/* Invisible markers added by JS: positioned here so they can never push content */
+.scroll-marker {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* 5. BUTTONS */
+.btn {
+  display: inline-block;
+  min-height: 2.75rem;
+  padding: 0.7rem 1.4rem;
+  overflow-wrap: anywhere;
+  font: 600 1rem var(--font-body);
+  color: var(--on-accent);
+  text-decoration: none;
+  cursor: pointer;
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  color: var(--muted);
+  background: transparent;
+  border-color: var(--line);
+}
+
+.btn-ghost {
+  color: var(--heading);
+  background: transparent;
+  border-color: var(--heading);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  color: var(--bg);
+  background: var(--heading);
+  border-color: var(--heading);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--heading);
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius);
+}
+
+.icon-btn:hover {
+  background: var(--bg-alt);
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* 6. HEADER AND NAV (mobile first: menu collapsed when JS is on) */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  transition: box-shadow 0.25s;
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 4px 14px rgb(0 0 0 / 12%);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  align-items: center;
+  padding-block: 0.5rem;
+}
+
+.logo {
+  font: 800 1.5rem var(--font-head);
+  color: var(--heading);
+  text-decoration: none;
+}
+
+.header-tools,
+.header-back {
+  margin: 0 0 0 auto;
+}
+
+.header-tools {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle[aria-pressed="true"] .icon-moon {
+  display: none;
+}
+
+.theme-toggle[aria-pressed="true"] .icon-sun {
+  display: block;
+}
+
+.bars,
+.bars::before,
+.bars::after {
+  display: block;
+  width: 24px;
+  height: 3px;
+  content: "";
+  background: var(--heading);
+  border-radius: 2px;
+  transition: transform 0.2s;
+}
+
+.bars {
+  position: relative;
+}
+
+.bars::before {
+  position: absolute;
+  top: -8px;
+}
+
+.bars::after {
+  position: absolute;
+  top: 8px;
+}
+
+.nav-toggle[aria-expanded="true"] .bars {
+  background: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .bars::before {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .bars::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.site-nav {
+  flex-basis: 100%;
+  order: 3;
+  padding-block: 0.25rem 0.75rem;
+}
+
+.js .site-nav {
+  display: none;
+}
+
+.js .site-nav.is-open {
+  display: block;
+}
+
+.nav-list a {
+  display: block;
+  padding: 0.7rem 0;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-list a[aria-current]:not(.nav-cta) {
+  font-weight: 600;
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
+}
+
+.nav-list .nav-cta {
+  margin-top: 0.75rem;
+  font-weight: 600;
+  color: var(--on-accent);
+  text-align: center;
+  text-decoration: none;
+  background: var(--accent);
+  border: 0;
+  border-radius: var(--radius);
+}
+
+/* 7. HERO */
+.hero {
+  padding-block: var(--section-y);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gap);
+}
+
+.lead {
+  font-size: 1.2rem;
+}
+
+.hero-media img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 5 / 2;
+  border-radius: var(--radius);
+}
+
+/* 8. BREAKPOINTS FOR THE FIRST SCREEN (mobile-first: each one only adds) */
+@media (min-width: 560px) {
+  .hero-media img {
+    aspect-ratio: 16 / 7;
+  }
+}
+
+@media (min-width: 760px) {
+  .header-inner {
+    flex-wrap: nowrap;
+  }
+
+  .header-tools {
+    order: 3;
+    margin-left: 0;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .js .site-nav,
+  .site-nav {
+    display: block;
+    flex-basis: auto;
+    order: 2;
+    padding: 0;
+    margin-left: auto;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .nav-list a {
+    padding: 0.3rem 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-list a:not(.nav-cta):hover,
+  .nav-list a[aria-current]:not(.nav-cta) {
+    border-color: var(--accent);
+  }
+
+  .nav-list a[aria-current]:not(.nav-cta) {
+    text-decoration: none; /* the border marks the current page here */
+  }
+
+  .nav-list .nav-cta,
+  .nav-list .nav-cta:hover {
+    padding: 0.55rem 1.1rem;
+    margin: 0;
+    border-bottom: 0;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero-inner {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+  }
+
+  .hero-media img {
+    aspect-ratio: 1;
+  }
+}
+
+/* Short landscape phones: a sticky header would eat the screen */
+@media (max-height: 500px) and (orientation: landscape) {
+  .site-header {
+    position: static;
+  }
+
+  .hero {
+    padding-block: 2rem;
+  }
+}
+
+/* 9. USER PREFERENCES THAT AFFECT THE FIRST SCREEN */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Windows High Contrast / forced colours: icons drawn with backgrounds would vanish */
+@media (forced-colors: active) {
+  .bars,
+  .bars::before,
+  .bars::after {
+    background: CanvasText;
+  }
+
+  .nav-toggle[aria-expanded="true"] .bars {
+    background: transparent;
+  }
+}
